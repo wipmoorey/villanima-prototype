@@ -1,0 +1,479 @@
+@import url('//fonts.googleapis.com/css?family=Georgia&subset=latin');
+@import url('//fonts.googleapis.com/css?family=Helvetica&subset=latin');
+@import url("//fonts.googleapis.com/css?family=Source Sans Pro&subset=latin");
+@import url("//fonts.googleapis.com/css?family=Source Sans Pro&subset=latin");
+
+h4 {
+    font-size: 1rem;
+    font-style: italic;
+    font-weight: normal;
+    line-height: 1.3rem;
+}
+
+.strong {
+    font-weight: bold;
+}
+
+.content {
+    font-family: Arial, Helvetica, sans-serif;
+    max-width: 920px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 1rem;
+
+    box-sizing: border-box;
+}
+
+
+/*  site-header
+
+  .site-header
+    .header-image
+    .menu-btn         (input)
+    .menu-icon        (label)
+      .nav-icon       (span)
+    .site-navigation-menu
+      li
+        a
+
+*/
+
+.site-header .header-image {
+    width: 100%;
+    max-width: 100%;
+    word-wrap: normal;
+    background-color: #d6d6d6;
+    background-image: url('/img/villa-nima-header.jpg');
+    background-size: contain;
+    background-attachment: scroll;
+    background-position: center center;
+    background-repeat: no-repeat;
+    position: relative;
+    display: block
+}
+
+.site-header .header-image:before {
+    content: '';
+    display: block;
+    padding-top: 17.65%;
+
+    box-shadow:1px 1px 4px 0 rgba(0, 0, 0, .1);
+}
+
+.menu-icon {
+    padding:28px 20px;
+    position: relative;
+
+    max-width: 4px 4px;
+
+    cursor: pointer;
+}
+
+.menu-icon .nav-icon {
+    background-color: #333;
+    display:block;
+    height:2px;
+    width:18px;
+    margin:4px 4px;
+
+    position: relative;
+    transition:background 0s ease-out;
+}
+
+.menu-icon .nav-icon::before {
+    background: #333;
+    content:"";
+    display: block;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    transition: all .2s ease-out;
+    top:5px;
+}
+
+.menu-icon .nav-icon::after {
+    background: #333;
+    content:"";
+    display: block;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    transition: all .2s ease-out;
+    top:-5px;
+}
+
+.menu-btn {
+    display: none;
+}
+
+/* menu-btn, when checked display an X as the menu icon  */
+.menu-btn:checked ~ .menu-icon .nav-icon {
+    background: transparent;
+}
+
+.menu-btn:checked ~ .menu-icon .nav-icon::before {
+    transform: rotate(-45deg);
+    top:0px;
+}
+
+.menu-btn:checked ~ .menu-icon .nav-icon::after {
+    transform: rotate(45deg);
+    top:0px;
+}
+
+/* menu-btn, when checked display play the dropdown menu */
+.menu-btn:checked ~ .site-navigation-menu {
+    max-height:1000px;
+}
+
+.site-navigation-menu {
+    background-color: #c1c1be;
+
+    margin:0;
+    padding:0;
+
+    max-height: 0;
+    overflow: hidden;
+    transition:max-height .2s ease-out;
+}
+
+ul.site-navigation-menu {
+    list-style: none;
+}
+
+.site-navigation-menu a {
+    color: #000;
+    display: block;
+    padding: 1rem;
+    font-size: .9em;
+    font-style: italic;
+    font-weight: bold;
+    font-family: "Helvetica";
+    text-decoration: none;
+    border-bottom: 1px solid rgb(199, 199, 199);
+
+    text-transform: capitalize;
+}
+
+.site-navigation-menu a:hover {
+    background-color: ivory;
+}
+
+
+/* .page-content */
+
+.page-content {
+    padding: 1rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.page-content p {
+    font-size: .8rem;
+    font-style: italic;  /* this could be a home page only constraint */
+    font-weight: bold;   /* this could be a home page only constraint */
+    line-height: 1.5rem;
+    margin: 2rem 0;      /* this could be a home page only constraint */
+}
+
+/* Really the margin should be removed from page-content p */
+.reduced-leading P {
+    margin: 1rem 0 !important;      /* this could be a home page only */
+}
+
+
+.img-main {
+    max-width: 100%;
+    margin:0px auto;
+}
+
+/* Content Spacing */
+
+.content-spacing-default {
+    margin: 1rem !important;
+}
+
+
+/* text formats */
+
+.text-emphasis {
+    font-style: italic;
+    font-weight: bold;
+}
+
+.line-size-default {
+    font-size: .8rem;
+    font-style: italic;  /* this could be a home page only constraint */
+    font-weight: bold;   /* this could be a home page only constraint */
+    line-height: 1.5rem;
+}
+
+.line-size-large {
+    font-size: 1.17em;
+    line-height: 1.3em;
+    padding: 0.5em;
+    margin: 0;
+}
+
+.line-size-larger {
+    font-size: 1.5em;
+    line-height: 2em;
+    margin: 0;
+}
+
+.text-collapse-top-spacing {
+    margin-top: 0  !important;
+    padding-top: 0 !important;
+}
+
+.text-collapse-bottom-spacing {
+    margin-bottom: 0 !important;
+}
+
+.text-collapse-all-spacing {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.text-underlined {
+    text-decoration: underline;
+}
+
+.text-centered {
+    text-align: center;
+}
+
+.text-blue {
+    color: #0000FF;
+}
+
+.text-title-light-blue {
+    color: #3366cc;
+}
+
+.text-light-blue {
+    color: #369;
+    color: rgb(51, 102, 153);
+}
+
+.text-orange {
+    color: #ff6633;
+}
+
+/* page layouts */
+
+.copy {
+    padding: 1rem 1rem 0;
+}
+
+/* Gallery styles */
+
+.gallery {
+    padding: 0;
+    margin: 0;
+}
+
+ul.gallery {
+    list-style: none;
+}
+
+.gallery img {
+    width: 100%;
+    height: auto;
+}
+
+
+/* Rate and bookings table */
+
+.rates-and-bookings-table {
+    background-color: #ccccff;
+    border: 1;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    font-size: 12pt;
+    font-style: normal;
+    font-weight:normal;
+    width: 689px;
+}
+
+.rates-and-bookings-table,
+.rates-and-bookings-table td {
+    border: solid 1px rgb(128,128,128);
+}
+
+.rates-and-bookings-table td {
+    padding: 1rem 0;
+    text-align: center;
+}
+
+
+/* footer */
+
+.site-footer {
+    width: 100%;
+    background: #f5f5f5;
+    border-top: 0 solid #e1e1e1;
+    padding: .5rem 0;
+}
+
+.copyright {
+    color: rgb(119, 119, 119);
+    text-align: center;
+    font-size: 0.8em;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+/* Forms */
+
+.form-field {
+    margin-bottom: 1.5rem;
+}
+
+.field-label {
+    display: block;
+    color: rgb(69, 69, 69);
+    font-family: "Source Sans Pro";
+    font-weight: normal;
+    font-style: normal;
+    text-transform: uppercase;
+    letter-spacing: 0px;
+    line-height: 1.5em;
+    font-size: 1em;
+}
+
+.field-input {
+    color: rgb(119, 119, 119);
+    border: 1px solid rgb(191, 191, 191);
+    background: rgb(255, 255, 255);
+    width: 100%;
+    padding: 0.75em;
+    font-size: 0.9em;
+    line-height: normal;
+    box-sizing: border-box;
+    border-radius: 2px;
+    font-family: inherit;
+}
+
+.form-button {
+    display: inline-block;
+    width: auto;
+    height: auto;
+    padding: 0.5em 1.5em;
+    border-width: 0px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    appearance: none;
+    font-family: "Source Sans Pro";
+    font-weight: normal;
+    font-style: normal;
+    text-transform: uppercase;
+    letter-spacing: 0px;
+    line-height: 1.5em;
+    font-size: 1em;
+    background-color: rgb(191, 191, 191) !important;
+    color: rgb(64, 64, 64) !important;
+    border-radius: 0px !important;
+}
+
+
+.included-services-list {
+    list-style: §;
+}
+
+.contact-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.useful-links {
+    line-height:400%;
+    list-style: none;
+    text-align: center;
+}
+
+
+.review {
+    margin: 3rem 0;
+}
+
+.review .summary {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 1.17rem;
+    list-style: none;
+    color: #000000;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 1rem;
+}
+
+.review .comment p {
+    color: #8B4513;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1.3em;
+    margin: 1rem 0;
+}
+
+
+@media screen and (min-width:602px)
+{
+    .menu-icon {
+        display: none;
+    }
+
+    .site-navigation-menu {
+        max-height: none;
+    }
+
+    .site-navigation-menu li {
+        /*
+          todo - bold text
+        */
+        display: inline-block;
+        padding: 1em 1em;
+    }
+
+    .site-navigation-menu a {
+        /*
+          todo - bold text
+        */
+        display: inline-block;
+        line-height: 1.5em;
+        font-size: .9em;
+        font-weight: normal;
+        padding:0px;
+        border: none;
+    }
+
+    .site-navigation-menu a:hover {
+        background-color: #c1c1be;
+    }
+
+
+    /* Float layout */
+    .column-3-2 {
+        float: left;
+        width: 66%;
+    }
+
+    .column-3-1 {
+        float: left;
+        width: 33%;
+    }
+
+
+    /* Clear floats after the columns */
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    .contact-list {
+        margin: 1rem;
+        padding-left: 2.5rem;
+    }
+
+}

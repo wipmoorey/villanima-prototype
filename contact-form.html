@@ -57,40 +57,83 @@
     <main class="page-content" >
 
 <!-- start-of-content -->
-<img class="img-main"  title="" alt="" src="/img/villa-nima-external-front.jpg">
+<div
+    class="copy text-light-blue text-collapse-all-spacing">
 
-<div class="copy text-centered">
-    <h3 class="text-emphasis line-size-large text-blue" >Welcome to Villa Nima&nbsp;and its gorgeous views</h3>
+    <h3
+        class="text-emphasis line-size-large text-collapse-all-spacing"
+    >Please complete this form to send us an email.</h3>
 
-    <h3 class="page-title text-emphasis line-size-large text-orange" >A&nbsp;special place to relax and enjoy the delights of Kefalonia</h3>
+</div>
 
-    <p class="text-blue">A&nbsp;uniquely designed private luxury villa. The villa offersthe highest standard of furnished accommodation and finishes.</p>
+<br>
+<br>
 
-    <p class="text-blue">A&nbsp;uniquely designed private luxury villa. The villa offersthe highest standard of furnished accommodation and finishes.</p>
-
-    <p class="text-blue">It can be found in Vlahata, a lovely Greek village which is local to the popular Lourdas beach area on the beautiful island.</p>
-
-    <p class="text-blue">The Villa boasts panoramic and stunning views of the bay and sea coves. Nima has its own exclusive pool, stands in pretty grounds and comprises 2 large double bedrooms, 1 large twin bedroom, all with luxury on-suite shower/wet rooms.</p>
-
-    <p class="text-blue">Fully air conditioned, the villa has a large open plan living area with modern facilities inclusive of LCD TV, DVD and I Pod/ CD music system.&nbsp; FREE Unlimited WIFI Access.&nbsp; The dining area comprises natural oak furniture.</p>
-
-    <p class="text-blue">Open plan kitchen is fitted with&nbsp;modern oven, hob, fridge/freezer, microwave, washing machine &amp; dishwasher.</p>
-
-    <p class="text-blue">Personal Chef Service available!</p>
-
-    <p class="text-blue">Externally: private balconies, patios, sun terraces, 8 sun loungers, landscaped garden, family barbecue and pergola in tranquil setting.</p>
-
-    <p class="text-blue">Villa Nima is fully EOT licensed with the Greek National Tourist Organisation for user safety and compliance.</p>
-
-
-    <h3 class="page-title text-emphasis line-size-large text-orange text-collapse-bottom-spacing">Join us to Enjoy
-        the Sun, Sea, Fine Foods, Local Wines and</h3>
-
-    <h3 class="page-title text-emphasis line-size-larger text-orange text-collapse-all-spacing">&nbsp;Greek way of life&nbsp; -&nbsp; Efharisto Poli</h3>
-
+<form id="contact-form" class="" name="contactForm" novalidate="">
+    <div class="form-field">
+        <label class="field-label"  for="name">Name</label>
+        <input
+            class="field-input"
+            id="name"
+            type="text"
+            placeholder="Enter your name"
+            name="name"
+        >
     </div>
 
+    <div class="form-field">
+        <label class="field-label" for="email">Email</label>
+        <input
+            class="field-input"
+            id="email"
+            type="text"
+            placeholder="Enter your email address"
+            name="email"
+        >
+    </div>
+
+    <div class="form-field">
+        <label class="field-label" for="message" >Message</label>
+        <textarea
+            class="field-input"
+            id="message"
+            name="message"
+            rows="5"
+            placeholder="Enter your message"
+        ></textarea>
+    </div>
+
+    <div class="form-item">
+        <button class="form-button">Send</button>
+    </div>
+</form>
+
 <!-- end-of-content -->
+
+<script>
+
+    $("#contact-form").submit(function(event) {
+        event.preventDefault();
+
+        var form = $( this );
+        var requestBody = {}
+        var formData = $( this ).serializeArray();
+        $.each(formData, function (i, input) {
+            requestBody[ input.name] = input.value;
+        });
+
+        console.log( formData );
+        console.log( requestBody );
+
+        $.post("https://villanima-contact-trial-fn.azurewebsites.net/api/contact", JSON.stringify( requestBody ), function(result) {
+            form.each(function(){
+                this.reset();
+            });
+        });
+    });
+
+</script>
+
     </main>
 
     <footer class="site-footer">
