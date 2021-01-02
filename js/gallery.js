@@ -5,8 +5,7 @@ $( document ).ready(function() {
 
     var cycleImages = true;
 
-    setInterval(() => {
-        if(!cycleImages) return;
+    var cycleImage = ( e ) => {
 
         $(".gallery li:first")
           .hide()
@@ -14,7 +13,18 @@ $( document ).ready(function() {
           .fadeIn(500)
           .end()
           .appendTo('.gallery');
+    }
+
+    setInterval(() => {
+        if(!cycleImages) return;
+
+        cycleImage();
+
     },  3000);
+
+    $( ".gallery li" ).on( "click swipe", e => {
+        cycleImage();
+    });
 
     $( ".gallery" )
         .hover
