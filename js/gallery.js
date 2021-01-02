@@ -22,7 +22,12 @@ $( document ).ready(function() {
 
     },  3000);
 
-    $( ".gallery li" ).on( "click swipe", e => {
+    $( ".gallery li" ).on( "click", e => {
+        cycleImage();
+    });
+
+
+    $( ".gallery li" ).on( "swipeleft", e => {
         cycleImage();
     });
 
